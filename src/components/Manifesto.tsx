@@ -96,6 +96,35 @@ export default function Manifesto() {
             </motion.li>
           ))}
         </StaggerIn>
+
+        <AnimateIn delay={0.6} className="mt-16 text-center">
+          <motion.a
+            href="/Madhav_Dutta_Campaign_Compact_2026.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            whileHover={{ scale: 1.04 }}
+            whileTap={{ scale: 0.97 }}
+            className="inline-flex items-center gap-3 bg-white text-[#FF2E0A] hover:bg-white/90 font-bold px-8 py-4 rounded-full transition-all duration-300 shadow-xl shadow-black/10 group"
+          >
+            <svg
+              className="w-5 h-5 group-hover:translate-y-0.5 transition-transform duration-200"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2.5}
+                d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+              />
+            </svg>
+            Download the Campaign Compact
+          </motion.a>
+          <p className="text-white/40 text-xs mt-4 tracking-widest uppercase font-semibold">
+            One Standard. Five Strands. Total Transparency.
+          </p>
+        </AnimateIn>
       </div>
     </section>
   );
