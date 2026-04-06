@@ -15,9 +15,9 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Madhav Dutta — Dignity Driven Campaign · JGLS 2026",
+  title: "Madhav Datta — Dignity Driven Campaign · JGLS 2026",
   description:
-    "Madhav Dutta's student election campaign at OP Jindal Global University, built on one standard: Dignity. Trusted as adults, basics without battle, health & recreation, support not punishment, democratic voice.",
+    "Madhav Datta's student election campaign at OP Jindal Global University, built on one standard: Dignity. Trusted as adults, basics without battle, health & recreation, support not punishment, democratic voice.",
 };
 
 export default function RootLayout({

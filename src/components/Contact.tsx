@@ -18,7 +18,7 @@ export default function Contact() {
               <h2 className="font-serif font-black text-white text-2xl sm:text-3xl md:text-5xl leading-tight mb-6">
                 Stand for Dignity.
                 <br />
-                <span className="text-[#FF2E0A]">Vote Madhav Dutta.</span>
+                <span className="text-[#FF2E0A]">Vote Madhav Datta.</span>
               </h2>
             </AnimateIn>
             <AnimateIn delay={0.25}>
@@ -71,7 +71,7 @@ export default function Contact() {
                 <p className="text-white/30 text-xs leading-relaxed">
                   OP Jindal Global University · Student Election 2026
                   <br />
-                  Paid for by the Madhav Dutta Campaign Committee
+                  Paid for by the Madhav Datta Campaign Committee
                 </p>
               </div>
             </div>

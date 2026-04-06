@@ -64,7 +64,7 @@ export default function About() {
               containerDelay={0.3}
             >
               <motion.p variants={staggerChild}>
-                Madhav Dutta is a student at OP Jindal Global University running
+                Madhav Datta is a student at OP Jindal Global University running
                 for the Student Union. His campaign is built on one foundational
                 idea: every student deserves to live, study, and grow in an
                 environment that respects their dignity.

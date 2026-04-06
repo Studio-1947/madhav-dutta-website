@@ -72,7 +72,7 @@ export default function Hero() {
               show: { opacity: 1, y: 0, transition: { duration: 0.7, ease } },
             }}
           >
-            Dutta.
+            Datta.
           </motion.span>
         </motion.h1>
 

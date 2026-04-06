@@ -11,7 +11,7 @@ export default function Footer() {
         </AnimateIn>
         <AnimateIn>
           <p className="text-white/30 text-xs text-center">
-            Madhav Dutta · Dignity Driven Campaign · JGLS Student Election 2026
+            Madhav Datta · Dignity Driven Campaign · JGLS Student Election 2026
           </p>
         </AnimateIn>
         <AnimateIn direction="right">
