@@ -172,7 +172,7 @@ function StrandSection({ strand }: { strand: StrandData }) {
             </AnimateIn>
             <div className="sm:pt-2">
               <AnimateIn delay={0.1}>
-                <p className="text-[#FF2E0A] text-xs sm:text-xs font-semibold tracking-[0.15em] sm:tracking-[0.2em] uppercase mb-2">
+                <p className="text-[#FF2E0A] text-xs font-semibold tracking-[0.15em] sm:tracking-[0.2em] uppercase mb-2">
                   {strand.superText}
                 </p>
               </AnimateIn>

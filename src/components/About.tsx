@@ -44,7 +44,7 @@ export default function About() {
   return (
     <section id="about" className="bg-[#FAFAFA] py-16 sm:py-24 md:py-32 overflow-hidden">
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
-        <div className="grid md:grid-cols-[200px_1fr] gap-12 md:gap-20">
+        <div className="grid md:grid-cols-[200px_1fr] gap-8 md:gap-20">
           <AnimateIn direction="left" delay={0.1}>
             <p className="text-[#FF2E0A] text-xs font-semibold tracking-[0.2em] uppercase pt-1">
               Who is Madhav?

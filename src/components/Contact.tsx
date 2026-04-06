@@ -37,12 +37,12 @@ export default function Contact() {
                 Reach Out
               </p>
               <motion.a
-                href="mailto:campaign@madhavdutta.in"
+                href="mailto:campaign@madhavdatta.in"
                 whileHover={{ color: "#FF2E0A", x: 4 }}
                 transition={{ duration: 0.15 }}
                 className="block text-white text-lg font-medium mb-8 break-all"
               >
-                campaign@madhavdutta.in
+                campaign@madhavdatta.in
               </motion.a>
 
               <p className="text-white/40 text-xs font-semibold tracking-[0.15em] uppercase mb-3">
