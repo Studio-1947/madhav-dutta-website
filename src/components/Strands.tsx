@@ -136,7 +136,7 @@ function ItemCard({ item, dark }: { item: AgendaItem; dark: boolean }) {
         borderColor: "rgba(255,46,10,0.45)",
         boxShadow: "0 12px 32px rgba(255,46,10,0.08)",
       }}
-      className={`border ${cardBg} rounded-2xl p-6 cursor-default`}
+      className={`border ${cardBg} rounded-2xl p-4 sm:p-6 cursor-default`}
     >
       <div className="flex items-start gap-3 mb-3">
         <motion.span
@@ -160,23 +160,24 @@ function StrandSection({ strand }: { strand: StrandData }) {
   const bodyColor = strand.dark ? "text-white/50" : "text-[#4A4A4A]";
 
   return (
-    <section id={strand.id} className={`${bg} py-24 md:py-32`}>
-      <div className="max-w-6xl mx-auto px-6">
-        <div className="mb-14 md:mb-16">
-          <div className="flex items-start gap-6 md:gap-10 mb-8">
+    <section id={strand.id} className={`${bg} py-16 sm:py-24 md:py-32 overflow-hidden`}>
+      <div className="max-w-6xl mx-auto px-4 sm:px-6">
+        <div className="mb-10 sm:mb-14 md:mb-16">
+          {/* Number sits above on mobile, inline from sm */}
+          <div className="flex flex-col sm:flex-row sm:items-start sm:gap-10 mb-6 sm:mb-8">
             <AnimateIn direction="left" delay={0.05}>
-              <span className="font-serif font-black text-[#FF2E0A] leading-none shrink-0 text-[clamp(3.5rem,8vw,6rem)]">
+              <span className="font-serif font-black text-[#FF2E0A] leading-none text-[3rem] sm:text-[clamp(3.5rem,8vw,6rem)] mb-3 sm:mb-0 block">
                 {strand.num}
               </span>
             </AnimateIn>
-            <div className="pt-2">
+            <div className="sm:pt-2">
               <AnimateIn delay={0.1}>
-                <p className="text-[#FF2E0A] text-xs font-semibold tracking-[0.2em] uppercase mb-2">
+                <p className="text-[#FF2E0A] text-xs sm:text-xs font-semibold tracking-[0.15em] sm:tracking-[0.2em] uppercase mb-2">
                   {strand.superText}
                 </p>
               </AnimateIn>
               <AnimateIn delay={0.18}>
-                <h2 className={`font-serif font-black ${headingColor} text-2xl md:text-4xl leading-tight`}>
+                <h2 className={`font-serif font-black ${headingColor} text-xl sm:text-2xl md:text-4xl leading-tight`}>
                   {strand.title}
                 </h2>
               </AnimateIn>
@@ -184,14 +185,14 @@ function StrandSection({ strand }: { strand: StrandData }) {
           </div>
 
           <AnimateIn delay={0.28}>
-            <p className={`${bodyColor} text-base md:text-lg leading-relaxed max-w-3xl border-l-2 border-[#FF2E0A]/40 pl-5`}>
+            <p className={`${bodyColor} text-sm sm:text-base md:text-lg leading-relaxed max-w-3xl border-l-2 border-[#FF2E0A]/40 pl-4 sm:pl-5`}>
               {strand.desc}
             </p>
           </AnimateIn>
         </div>
 
         <StaggerIn
-          className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4"
           containerDelay={0.35}
           staggerDelay={0.07}
         >

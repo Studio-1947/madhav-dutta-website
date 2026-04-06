@@ -42,8 +42,8 @@ function CountUp({ target, suffix }: { target: number; suffix: string }) {
 
 export default function About() {
   return (
-    <section id="about" className="bg-[#FAFAFA] py-24 md:py-32">
-      <div className="max-w-6xl mx-auto px-6">
+    <section id="about" className="bg-[#FAFAFA] py-16 sm:py-24 md:py-32 overflow-hidden">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6">
         <div className="grid md:grid-cols-[200px_1fr] gap-12 md:gap-20">
           <AnimateIn direction="left" delay={0.1}>
             <p className="text-[#FF2E0A] text-xs font-semibold tracking-[0.2em] uppercase pt-1">
@@ -53,7 +53,7 @@ export default function About() {
 
           <div>
             <AnimateIn delay={0.15}>
-              <h2 className="font-serif font-black text-[#0D0D0D] text-3xl md:text-5xl leading-tight mb-8">
+              <h2 className="font-serif font-black text-[#0D0D0D] text-2xl sm:text-3xl md:text-5xl leading-tight mb-6 sm:mb-8">
                 A student who believes campus life can be better — and is ready
                 to fight for it.
               </h2>
@@ -80,16 +80,16 @@ export default function About() {
             </StaggerIn>
 
             <StaggerIn
-              className="mt-12 grid grid-cols-3 gap-6 md:gap-10 border-t border-[#0D0D0D]/10 pt-10"
+              className="mt-10 sm:mt-12 grid grid-cols-3 gap-3 sm:gap-6 md:gap-10 border-t border-[#0D0D0D]/10 pt-8 sm:pt-10"
               containerDelay={0.5}
               staggerDelay={0.12}
             >
               {stats.map((s) => (
                 <motion.div key={s.label} variants={staggerChild}>
-                  <p className="font-serif font-black text-[#FF2E0A] text-4xl md:text-5xl leading-none mb-1">
+                  <p className="font-serif font-black text-[#FF2E0A] text-3xl sm:text-4xl md:text-5xl leading-none mb-1">
                     <CountUp target={s.num} suffix={s.suffix} />
                   </p>
-                  <p className="text-[#2A2A2A] text-sm font-medium">{s.label}</p>
+                  <p className="text-[#2A2A2A] text-xs sm:text-sm font-medium leading-snug">{s.label}</p>
                 </motion.div>
               ))}
             </StaggerIn>

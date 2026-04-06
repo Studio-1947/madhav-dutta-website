@@ -45,7 +45,7 @@ export default function Manifesto() {
   return (
     <section
       id="manifesto"
-      className="bg-[#FF2E0A] py-24 md:py-32 overflow-hidden relative"
+      className="bg-[#FF2E0A] py-16 sm:py-24 md:py-32 overflow-hidden relative"
     >
       <motion.span
         aria-hidden="true"
@@ -83,12 +83,12 @@ export default function Manifesto() {
               variants={rowVariant}
               whileHover={{ x: 8 }}
               transition={{ duration: 0.2 }}
-              className="flex items-start gap-6 md:gap-10 py-7 list-none group cursor-default"
+              className="flex items-start gap-4 sm:gap-6 md:gap-10 py-5 sm:py-7 list-none group cursor-default"
             >
-              <span className="font-serif font-black text-white/30 text-xl md:text-2xl shrink-0 pt-0.5 group-hover:text-white/70 transition-colors duration-200">
+              <span className="font-serif font-black text-white/30 text-lg sm:text-xl md:text-2xl shrink-0 pt-0.5 group-hover:text-white/70 transition-colors duration-200">
                 {s.num}
               </span>
-              <p className="text-white/80 text-lg md:text-xl leading-relaxed group-hover:text-white transition-colors duration-200">
+              <p className="text-white/80 text-base sm:text-lg md:text-xl leading-relaxed group-hover:text-white transition-colors duration-200">
                 {s.text}
                 <strong className="text-white font-semibold">{s.bold}</strong>
                 {s.rest}

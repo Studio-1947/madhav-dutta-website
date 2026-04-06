@@ -37,12 +37,12 @@ export default function Hero() {
         }}
       />
 
-      <div className="relative z-10 max-w-6xl mx-auto px-6 pt-24 pb-16 w-full">
+      <div className="relative z-10 max-w-6xl mx-auto px-6 pt-24 pb-20 w-full">
         <motion.p
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.3, ease }}
-          className="text-[#FF2E0A] text-sm font-semibold tracking-[0.2em] uppercase mb-8"
+          className="text-[#FF2E0A] text-[10px] sm:text-sm font-semibold tracking-[0.12em] sm:tracking-[0.2em] uppercase mb-6 sm:mb-8"
         >
           OP Jindal Global University · Student Election 2026
         </motion.p>
@@ -80,7 +80,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.9, ease }}
-          className="text-white/60 text-lg md:text-2xl font-light max-w-xl leading-relaxed mb-12"
+          className="text-white/60 text-base sm:text-lg md:text-2xl font-light max-w-xl leading-relaxed mb-10 sm:mb-12"
         >
           Student life must be organised around{" "}
           <em className="text-white not-italic font-semibold">dignity.</em>
@@ -110,21 +110,6 @@ export default function Hero() {
           >
             The 5 Pillars
           </motion.a>
-        </motion.div>
-
-        {/* Scroll hint */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1, delay: 1.6 }}
-          className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-white/30"
-        >
-          <span className="text-xs tracking-widest uppercase">scroll</span>
-          <motion.div
-            animate={{ scaleY: [1, 0.4, 1], opacity: [0.3, 0.7, 0.3] }}
-            transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut" }}
-            className="w-px h-12 bg-gradient-to-b from-white/40 to-transparent origin-top"
-          />
         </motion.div>
       </div>
     </section>

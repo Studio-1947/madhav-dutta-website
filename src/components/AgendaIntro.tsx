@@ -12,8 +12,8 @@ const pillars = [
 
 export default function AgendaIntro() {
   return (
-    <section id="agenda" className="bg-[#0D0D0D] py-24 md:py-32">
-      <div className="max-w-6xl mx-auto px-6">
+    <section id="agenda" className="bg-[#0D0D0D] py-16 sm:py-24 md:py-32 overflow-hidden">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6">
         <div className="max-w-3xl mb-16 md:mb-20">
           <AnimateIn delay={0.05}>
             <p className="text-[#FF2E0A] text-xs font-semibold tracking-[0.2em] uppercase mb-4">
@@ -21,7 +21,7 @@ export default function AgendaIntro() {
             </p>
           </AnimateIn>
           <AnimateIn delay={0.15}>
-            <h2 className="font-serif font-black text-white text-3xl md:text-5xl leading-tight mb-6">
+            <h2 className="font-serif font-black text-white text-2xl sm:text-3xl md:text-5xl leading-tight mb-6">
               A Dignity-Driven Agenda
             </h2>
           </AnimateIn>

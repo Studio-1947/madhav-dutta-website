@@ -24,7 +24,7 @@ export default function AnimateIn({
   const initial = {
     opacity: 0,
     y: direction === "up" ? 32 : 0,
-    x: direction === "left" ? -32 : direction === "right" ? 32 : 0,
+    x: direction === "left" ? -20 : direction === "right" ? 20 : 0,
   };
 
   return (
