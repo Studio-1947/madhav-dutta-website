@@ -1,5 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { ease } from "@/lib/motion";
 
 const links = [
   { label: "About", href: "#about" },
@@ -18,7 +20,10 @@ export default function Navbar() {
   }, []);
 
   return (
-    <nav
+    <motion.nav
+      initial={{ y: -80, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ duration: 0.6, delay: 1.4, ease }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
           ? "bg-[#0D0D0D]/95 backdrop-blur-md shadow-lg shadow-black/20"
@@ -26,33 +31,36 @@ export default function Navbar() {
       }`}
     >
       <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
-        {/* Logo */}
-        <a
+        <motion.a
           href="#hero"
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.97 }}
           className="font-serif text-white text-xl font-black tracking-tight"
         >
-          MD <span className="text-[#FF2E0A]">2025</span>
-        </a>
+          MD <span className="text-[#FF2E0A]">2026</span>
+        </motion.a>
 
-        {/* Desktop links */}
         <ul className="hidden md:flex items-center gap-8">
           {links.map((l) => (
             <li key={l.href}>
               <a
                 href={l.href}
-                className="text-white/70 hover:text-white text-sm font-medium transition-colors"
+                className="text-white/70 hover:text-white text-sm font-medium transition-colors relative group"
               >
                 {l.label}
+                <span className="absolute -bottom-0.5 left-0 w-0 h-px bg-[#FF2E0A] group-hover:w-full transition-all duration-300" />
               </a>
             </li>
           ))}
           <li>
-            <a
+            <motion.a
               href="#contact"
-              className="bg-[#FF2E0A] hover:bg-[#C4220A] text-white text-sm font-semibold px-5 py-2 rounded-full transition-colors"
+              whileHover={{ scale: 1.05, backgroundColor: "#C4220A" }}
+              whileTap={{ scale: 0.97 }}
+              className="bg-[#FF2E0A] text-white text-sm font-semibold px-5 py-2 rounded-full inline-block"
             >
               Support Madhav
-            </a>
+            </motion.a>
           </li>
         </ul>
 
@@ -62,45 +70,68 @@ export default function Navbar() {
           onClick={() => setOpen(!open)}
           aria-label="Toggle menu"
         >
-          <span
-            className={`block w-6 h-0.5 bg-white transition-all duration-200 ${open ? "rotate-45 translate-y-2" : ""}`}
+          <motion.span
+            animate={open ? { rotate: 45, y: 8 } : { rotate: 0, y: 0 }}
+            transition={{ duration: 0.2 }}
+            className="block w-6 h-0.5 bg-white origin-center"
           />
-          <span
-            className={`block w-6 h-0.5 bg-white transition-all duration-200 ${open ? "opacity-0" : ""}`}
+          <motion.span
+            animate={open ? { opacity: 0, scaleX: 0 } : { opacity: 1, scaleX: 1 }}
+            transition={{ duration: 0.15 }}
+            className="block w-6 h-0.5 bg-white"
           />
-          <span
-            className={`block w-6 h-0.5 bg-white transition-all duration-200 ${open ? "-rotate-45 -translate-y-2" : ""}`}
+          <motion.span
+            animate={open ? { rotate: -45, y: -8 } : { rotate: 0, y: 0 }}
+            transition={{ duration: 0.2 }}
+            className="block w-6 h-0.5 bg-white origin-center"
           />
         </button>
       </div>
 
       {/* Mobile menu */}
-      {open && (
-        <div className="md:hidden bg-[#0D0D0D] border-t border-white/10 px-6 pb-6 pt-4">
-          <ul className="flex flex-col gap-4">
-            {links.map((l) => (
-              <li key={l.href}>
-                <a
-                  href={l.href}
-                  onClick={() => setOpen(false)}
-                  className="text-white/80 hover:text-white text-base font-medium block"
+      <AnimatePresence>
+        {open && (
+          <motion.div
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: "auto", opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: 0.3, ease }}
+            className="md:hidden overflow-hidden bg-[#0D0D0D] border-t border-white/10"
+          >
+            <ul className="flex flex-col gap-4 px-6 pb-6 pt-4">
+              {links.map((l, i) => (
+                <motion.li
+                  key={l.href}
+                  initial={{ opacity: 0, x: -16 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: i * 0.06 + 0.05 }}
                 >
-                  {l.label}
-                </a>
-              </li>
-            ))}
-            <li>
-              <a
-                href="#contact"
-                onClick={() => setOpen(false)}
-                className="bg-[#FF2E0A] text-white text-sm font-semibold px-5 py-2.5 rounded-full inline-block mt-2"
+                  <a
+                    href={l.href}
+                    onClick={() => setOpen(false)}
+                    className="text-white/80 hover:text-white text-base font-medium block"
+                  >
+                    {l.label}
+                  </a>
+                </motion.li>
+              ))}
+              <motion.li
+                initial={{ opacity: 0, x: -16 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: links.length * 0.06 + 0.05 }}
               >
-                Support Madhav
-              </a>
-            </li>
-          </ul>
-        </div>
-      )}
-    </nav>
+                <a
+                  href="#contact"
+                  onClick={() => setOpen(false)}
+                  className="bg-[#FF2E0A] text-white text-sm font-semibold px-5 py-2.5 rounded-full inline-block mt-2"
+                >
+                  Support Madhav
+                </a>
+              </motion.li>
+            </ul>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </motion.nav>
   );
 }

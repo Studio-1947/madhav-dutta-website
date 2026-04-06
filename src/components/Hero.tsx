@@ -1,19 +1,31 @@
+"use client";
+import { motion } from "framer-motion";
+import { ease } from "@/lib/motion";
+
 export default function Hero() {
   return (
     <section
       id="hero"
       className="relative min-h-screen bg-[#0D0D0D] flex items-center overflow-hidden"
     >
-      {/* Background word */}
-      <span
+      {/* Animated background word */}
+      <motion.span
         aria-hidden="true"
+        initial={{ opacity: 0, scale: 1.08 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 1.6, ease }}
         className="absolute inset-0 flex items-center justify-center text-[22vw] font-serif font-black text-white/[0.03] select-none pointer-events-none leading-none tracking-tighter"
       >
         DIGNITY
-      </span>
+      </motion.span>
 
-      {/* Left red accent bar */}
-      <div className="absolute left-0 top-0 h-full w-1 bg-[#FF2E0A]" />
+      {/* Left red accent bar — grows down */}
+      <motion.div
+        initial={{ scaleY: 0 }}
+        animate={{ scaleY: 1 }}
+        transition={{ duration: 1, delay: 0.2, ease }}
+        className="absolute left-0 top-0 h-full w-1 bg-[#FF2E0A] origin-top"
+      />
 
       {/* Grid overlay */}
       <div
@@ -26,48 +38,94 @@ export default function Hero() {
       />
 
       <div className="relative z-10 max-w-6xl mx-auto px-6 pt-24 pb-16 w-full">
-        {/* Eyebrow */}
-        <p className="text-[#FF2E0A] text-sm font-semibold tracking-[0.2em] uppercase mb-8">
-          OP Jindal Global University · Student Election 2025
-        </p>
+        <motion.p
+          initial={{ opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.3, ease }}
+          className="text-[#FF2E0A] text-sm font-semibold tracking-[0.2em] uppercase mb-8"
+        >
+          OP Jindal Global University · Student Election 2026
+        </motion.p>
 
-        {/* Name */}
-        <h1 className="font-serif font-black text-white leading-[0.9] mb-8">
-          <span className="block text-[clamp(4rem,12vw,10rem)]">Madhav</span>
-          <span className="block text-[clamp(4rem,12vw,10rem)] text-[#FF2E0A]">
+        <motion.h1
+          className="font-serif font-black text-white leading-[0.9] mb-8"
+          initial="hidden"
+          animate="show"
+          variants={{
+            hidden: {},
+            show: { transition: { staggerChildren: 0.12, delayChildren: 0.5 } },
+          }}
+        >
+          <motion.span
+            className="block text-[clamp(4rem,12vw,10rem)]"
+            variants={{
+              hidden: { opacity: 0, y: 60 },
+              show: { opacity: 1, y: 0, transition: { duration: 0.7, ease } },
+            }}
+          >
+            Madhav
+          </motion.span>
+          <motion.span
+            className="block text-[clamp(4rem,12vw,10rem)] text-[#FF2E0A]"
+            variants={{
+              hidden: { opacity: 0, y: 60 },
+              show: { opacity: 1, y: 0, transition: { duration: 0.7, ease } },
+            }}
+          >
             Dutta.
-          </span>
-        </h1>
+          </motion.span>
+        </motion.h1>
 
-        {/* Tagline */}
-        <p className="text-white/60 text-lg md:text-2xl font-light max-w-xl leading-relaxed mb-12">
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, delay: 0.9, ease }}
+          className="text-white/60 text-lg md:text-2xl font-light max-w-xl leading-relaxed mb-12"
+        >
           Student life must be organised around{" "}
           <em className="text-white not-italic font-semibold">dignity.</em>
           <br />
           That is not a slogan. It is a standard.
-        </p>
+        </motion.p>
 
-        {/* CTAs */}
-        <div className="flex flex-wrap gap-4">
-          <a
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 1.1, ease }}
+          className="flex flex-wrap gap-4"
+        >
+          <motion.a
             href="#agenda"
-            className="bg-[#FF2E0A] hover:bg-[#C4220A] text-white font-semibold px-8 py-3.5 rounded-full transition-colors text-sm tracking-wide"
+            whileHover={{ scale: 1.04 }}
+            whileTap={{ scale: 0.97 }}
+            className="bg-[#FF2E0A] hover:bg-[#C4220A] text-white font-semibold px-8 py-3.5 rounded-full transition-colors text-sm tracking-wide inline-block"
           >
             See the Agenda
-          </a>
-          <a
+          </motion.a>
+          <motion.a
             href="#strands"
-            className="border border-white/30 hover:border-white text-white font-semibold px-8 py-3.5 rounded-full transition-colors text-sm tracking-wide"
+            whileHover={{ scale: 1.04 }}
+            whileTap={{ scale: 0.97 }}
+            className="border border-white/30 hover:border-white text-white font-semibold px-8 py-3.5 rounded-full transition-colors text-sm tracking-wide inline-block"
           >
             The 5 Pillars
-          </a>
-        </div>
+          </motion.a>
+        </motion.div>
 
         {/* Scroll hint */}
-        <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-white/30">
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1, delay: 1.6 }}
+          className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-white/30"
+        >
           <span className="text-xs tracking-widest uppercase">scroll</span>
-          <div className="w-px h-12 bg-gradient-to-b from-white/30 to-transparent" />
-        </div>
+          <motion.div
+            animate={{ scaleY: [1, 0.4, 1], opacity: [0.3, 0.7, 0.3] }}
+            transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut" }}
+            className="w-px h-12 bg-gradient-to-b from-white/40 to-transparent origin-top"
+          />
+        </motion.div>
       </div>
     </section>
   );
